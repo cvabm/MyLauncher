@@ -15,7 +15,6 @@
 package com.cvabm.launcher
 
 import android.app.Application
-import com.cvabm.launcher.utils.AppUtils
 
 /**
  * 文 件 名: MyApplication

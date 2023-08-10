@@ -22,7 +22,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name="com.cvabm.launcher.activity.WelcomeActivity"
+            android:name="com.cvabm.launcher.WelcomeActivity"
             android:exported="true"
             android:theme="@style/WelcomeTheme">
             <intent-filter>
@@ -32,7 +32,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.cvabm.launcher.activity.dragswipe.DefaultDragAndSwipeActivity"
+            android:name="com.cvabm.launcher.DefaultDragAndSwipeActivity"
             android:exported="false" />
     </application>
 
