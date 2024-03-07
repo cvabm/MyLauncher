@@ -17,7 +17,7 @@
 
     <application
         android:name="com.cvabm.launcher.MyApplication"
-        android:icon="@mipmap/logo"
+        android:icon="@mipmap/ic_launcher"
         android:label="Q Launcher"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">

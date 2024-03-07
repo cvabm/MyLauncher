@@ -3,6 +3,7 @@ package com.cvabm.launcher
 import android.animation.ValueAnimator
 import android.app.ProgressDialog
 import android.content.Context
+import android.content.pm.PackageManager
 import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.Rect
@@ -228,9 +229,30 @@ class DefaultDragAndSwipeActivity : BaseViewBindingActivity<ActivityUniversalRec
     }
 
     private fun launchApp(packageName: String?) {
-        val launchIntentForPackage =
-            packageName?.let { packageManager.getLaunchIntentForPackage(it) }
-        launchIntentForPackage?.let { startActivity(it) }
+        packageName?.let {
+            // 检查包名是否正确
+            Log.d("TAG", "packageName: $packageName")
+
+            val packageInfo = packageManager.getPackageInfo(packageName, PackageManager.GET_ACTIVITIES)
+            if (packageInfo != null) {
+                // 包存在，继续获取启动意图
+                val launchIntentForPackage = packageManager.getLaunchIntentForPackage(packageName)
+                if (launchIntentForPackage != null) {
+                    // 检查目标 Activity 是否存在
+                    val resolveInfo = packageManager.resolveActivity(launchIntentForPackage, 0)
+                    if (resolveInfo != null) {
+                        // 启动应用程序
+                        startActivity(launchIntentForPackage)
+                    } else {
+                        Log.e("TAG", "Target Activity not found")
+                    }
+                } else {
+                    Log.e("TAG", "Launch intent not found")
+                }
+            } else {
+                Log.e("TAG", "Package not found")
+            }
+        }
     }
 
     @RequiresApi(Build.VERSION_CODES.O)

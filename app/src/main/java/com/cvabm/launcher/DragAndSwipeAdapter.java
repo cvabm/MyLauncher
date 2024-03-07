@@ -7,7 +7,6 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 
 import com.chad.baserecyclerviewadapterhelper.R;
-import com.cvabm.launcher.DefaultDragAndSwipeActivity;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.dragswipe.listener.DragAndSwipeDataCallback;
 import com.chad.library.adapter.base.viewholder.QuickViewHolder;
